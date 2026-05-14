@@ -19,8 +19,6 @@
     extraFlags = "--disable traefik --write-kubeconfig-mode 644"; # on gérera l'ingress nous-mêmes
   };
 
-  services.tailscale.enable = true;
-
   services.openssh = {
     enable = true;
     settings = {
@@ -45,7 +43,6 @@
     trustedInterfaces = [
       "cni0"
       "flannel.1"
-      "tailscale0"
     ];
     allowedUDPPorts = [
       8472

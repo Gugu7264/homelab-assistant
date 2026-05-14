@@ -31,6 +31,16 @@ in
     trusted-users = [ "nix-builder" ];
     min-free = 10 * 1024 * 1024 * 1024;
     max-free = 20 * 1024 * 1024 * 1024;
+
+    substituters = [
+      "http://10.201.3.150:8000/yaka-cache"
+      "https://nix-community.cachix.org"
+      "https://cache.nixos.org/"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "yaka-cache:sRTS8g4S0vP5WzVW4kIJ1C+PR9y2AS+2WpC3G2gXB7g="
+    ];
   };
 
   nix.gc = {
@@ -42,8 +52,6 @@ in
   nix.extraOptions = ''
     post-build-hook = ${atticPushHook}
   '';
-
-  services.tailscale.enable = true;
 
   services.openssh = {
     enable = true;

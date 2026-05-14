@@ -15,8 +15,6 @@
     token = "K10bd718a26a752b25a1c8a443d7fafd1469f6b9d1dc031b7c3c45244ccf286d6d8::server:7509289155d84cd7972023295e1d221c";
   };
 
-  services.tailscale.enable = true;
-
   services.openssh = {
     enable = true;
     settings = {
